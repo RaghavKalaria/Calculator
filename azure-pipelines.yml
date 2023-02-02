@@ -26,15 +26,6 @@ stages:
               script: |
                 cd TaskDirectory # Update to the name of the directory of your task
                 tsc
-          - task: Npm@1
-            inputs:
-              command: 'custom'
-              workingDir: '' # Update to the name of the directory of your task's tests
-              customCommand: 'testScript' # See the definition in the explanation section below - it may be called test
-          - task: PublishTestResults@2
-            inputs:
-              testResultsFormat: 'JUnit'
-              testResultsFiles: '**/ResultsFile.xml'
   - stage: Package_extension_and_publish_build_artifacts
     jobs:
       - job:
@@ -57,7 +48,7 @@ stages:
             name: QueryVersion
             inputs:
               connectTo: 'VsTeam'
-              connectedServiceName: 'InOut' # Change to whatever you named the service connection
+              connectedServiceName: 'Calc' # Change to whatever you named the service connection
               publisherId: '$(PublisherID)'
               extensionId: '$(ExtensionID)'
               versionAction: 'Patch'
@@ -98,7 +89,7 @@ stages:
           - task: PublishAzureDevOpsExtension@4
             inputs:
               connectTo: 'VsTeam'
-              connectedServiceName: 'InOut' # Change to whatever you named the service connection
+              connectedServiceName: 'Calc' # Change to whatever you named the service connection
               fileType: 'vsix'
               vsixFile: '$(PublisherID).$(ExtensionName)/$(PublisherID)..vsix'
               publisherId: '$(PublisherID)'
