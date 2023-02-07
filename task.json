@@ -1,9 +1,9 @@
 {
  "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
- "id": "eb15dbd2-fbbf-4dc7-ab58-3482f7148819",
- "name": "calculator",
- "friendlyName": "Calc",
- "description": "Does basic 2 number calculation",
+ "id": "eb15dbd2-fbbf-4dc7-ab58-3482f7148832",
+ "name": "PassingObj",
+ "friendlyName": "PassObj",
+ "description": "Does basic 2 number calculation and returns the value",
  "helpMarkDown": "",
  "category": "Utility",
  "author": "RK@Mindstix",
@@ -12,28 +12,23 @@
      "Minor": 1,
      "Patch": 0
  },
+ "instanceNameFormat": "InstaceForamthere",
  "inputs": [
      {
-         "name": "Number1",
-         "type": "int",
-         "label": "Enter First Number",
+         "name": "name",
+         "type": "string",
+         "label": "Enter Output",
          "required": true
-         
-     },
-     {
-         "name": "Number2",
-         "type": "int",
-         "label": "Enter Second Number",
-         "required": true
-     },
-     {
-        "name": "Operation",
-        "type": "string",
-        "label": "Enter Operation to be performed",
-        "required": true
      }
 
  ],
+ "outputVariables": [
+    {
+        "name": "var1",
+        "description": "Stores output of function"
+    }
+ ],
+ 
  "execution": {
      "Node": {
          "target": "index.js"

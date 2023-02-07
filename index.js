@@ -37,18 +37,21 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 var tl = require("azure-pipelines-task-lib/task");
+function initVal(val) {
+    console.log("inside function initVal");
+    return val;
+}
 function run() {
     return __awaiter(this, void 0, void 0, function () {
-        var num1, num2, Op;
+        var name1;
         return __generator(this, function (_a) {
             try {
-                num1 = tl.getInput('Number1', true);
-                num2 = tl.getInput('Number2', true);
-                Op = tl.getInput('Operation', true);
-                console.log(eval(num1 + Op + num2));
+                name1 = tl.getInput('name', true);
+                console.log("echo name");
             }
             catch (e) {
                 console.error(e);
+                return [2 /*return*/, "Error"];
             }
             return [2 /*return*/];
         });
